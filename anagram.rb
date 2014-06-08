@@ -5,18 +5,18 @@ class Anagram
 
   def match(words)
     words.select do |word|
-      not_identical(word.downcase) &&
-      same_characters(word.downcase)
+      word = word.downcase
+      not_identical(word) && same_characters(word)
     end
   end
 
   private
 
-  def not_identical(word)
-    @word != word
-  end
+    def not_identical(word)
+      @word != word
+    end
 
-  def same_characters(word)
-    @word.chars.sort == word.chars.sort
-  end
+    def same_characters(word)
+      @word.chars.sort == word.chars.sort
+    end
 end
